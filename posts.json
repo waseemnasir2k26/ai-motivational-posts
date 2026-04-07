@@ -1,0 +1,82 @@
+{
+  "author": {
+    "name": "Waseem Nasir",
+    "handle": "@waseemnasir",
+    "photo": "photo.png"
+  },
+  "schedule": {
+    "start_date": "2026-04-08",
+    "timezone": "EST",
+    "times_by_weekday": {
+      "Mon": "09:00:00",
+      "Tue": "12:00:00",
+      "Wed": "10:00:00",
+      "Thu": "14:00:00",
+      "Fri": "17:00:00",
+      "Sat": "11:00:00",
+      "Sun": "10:00:00"
+    }
+  },
+  "posts": [
+    {
+      "id": 1,
+      "quote": "AI won't replace you.\nA person using AI will.",
+      "caption": "AI won't replace you. A person using AI will.\n\nThe threat isn't artificial intelligence — it's artificial ignorance. The people who refuse to adapt.\n\nLearn the tools. Build the systems. Stay dangerous.\n\nFollow @waseemnasir for daily AI & automation insights.",
+      "hashtags": "#AI #ArtificialIntelligence #FutureOfWork #TechMindset #Automation #AITools #DigitalTransformation #WorkSmarter #SkynetJoe #WaseemNasir"
+    },
+    {
+      "id": 2,
+      "quote": "Automate the boring stuff.\nHumanize the important stuff.",
+      "caption": "Automate the boring stuff. Humanize the important stuff.\n\nThe goal of AI isn't to remove humans from the equation — it's to free humans for what actually matters.\n\nStrategy. Creativity. Connection.\n\nLet the bots handle the busywork.",
+      "hashtags": "#Automation #AI #Productivity #n8n #WorkflowAutomation #TechEntrepreneur #BuildSystems #AgencyLife #SkynetJoe #WaseemNasir"
+    },
+    {
+      "id": 3,
+      "quote": "Your competitors aren't sleeping.\nTheir AI agents aren't either.",
+      "caption": "Your competitors aren't sleeping. Their AI agents aren't either.\n\nWhile you're deciding whether AI is \"ready,\" someone else is deploying agents that work 24/7.\n\nThe question isn't IF you should use AI.\nIt's how fast you can start.",
+      "hashtags": "#AIAgents #CompetitiveAdvantage #TechStartup #Entrepreneurship #AIAutomation #BusinessGrowth #StayAhead #DigitalAgency #SkynetJoe #WaseemNasir"
+    },
+    {
+      "id": 4,
+      "quote": "Stop trading time for money.\nStart trading systems for freedom.",
+      "caption": "Stop trading time for money. Start trading systems for freedom.\n\nEvery hour you spend on repetitive tasks is an hour you'll never get back.\n\nBuild systems once. Let them run forever.\nThat's the real definition of leverage.",
+      "hashtags": "#SystemsThinking #Leverage #Automation #FreelancerLife #AgencyOwner #PassiveIncome #BuildOnce #AIWorkflow #SkynetJoe #WaseemNasir"
+    },
+    {
+      "id": 5,
+      "quote": "Build once.\nDeploy everywhere.\nSleep peacefully.",
+      "caption": "Build once. Deploy everywhere. Sleep peacefully.\n\nThat's the developer's dream — and with modern AI + automation, it's finally real.\n\nOne workflow. Multiple platforms. Zero babysitting.\n\nThis is how you scale without burning out.",
+      "hashtags": "#DevLife #Scalability #WebDevelopment #CloudComputing #AITools #n8nAutomation #TechLife #CodeOnce #SkynetJoe #WaseemNasir"
+    },
+    {
+      "id": 6,
+      "quote": "The gap between knowing AI exists and using AI daily is where fortunes are made.",
+      "caption": "The gap between knowing AI exists and using AI daily is where fortunes are made.\n\nEveryone \"knows\" about AI.\nAlmost nobody has built it into their daily workflow.\n\nThat gap? That's your unfair advantage.\nClose it before everyone else does.",
+      "hashtags": "#AIStrategy #UnfairAdvantage #TechEntrepreneur #AIDaily #Innovation #DigitalTransformation #FirstMover #AIBusiness #SkynetJoe #WaseemNasir"
+    },
+    {
+      "id": 7,
+      "quote": "Every line of code you write today is a conversation with the future.",
+      "caption": "Every line of code you write today is a conversation with the future.\n\nCode isn't just logic — it's a blueprint for what's possible tomorrow.\n\nWrite it with intention.\nBuild it with purpose.\nShip it with confidence.",
+      "hashtags": "#Coding #SoftwareEngineering #DevMindset #ProgrammerLife #TechMotivation #JavaScript #Python #WebDev #SkynetJoe #WaseemNasir"
+    },
+    {
+      "id": 8,
+      "quote": "In 2026, not using AI in your business is like refusing to use email in 2005.",
+      "caption": "In 2026, not using AI in your business is like refusing to use email in 2005.\n\nSounds dramatic? It's not.\n\nAI is the new electricity. The new internet. The new baseline.\n\nAdopt it or get left behind. There's no middle ground anymore.",
+      "hashtags": "#AI2026 #BusinessStrategy #DigitalTransformation #AdaptOrDie #TechTrends #AIBusiness #SmallBusiness #Innovation #SkynetJoe #WaseemNasir"
+    },
+    {
+      "id": 9,
+      "quote": "The best agencies don't just build websites.\nThey build revenue machines.",
+      "caption": "The best agencies don't just build websites. They build revenue machines.\n\nA website without SEO is a billboard in the desert.\nA funnel without automation is a leaky bucket.\n\nBuild systems that generate, capture, and convert.\nThat's the SkynetJoe way.",
+      "hashtags": "#AgencyLife #WebDesign #SEO #LeadGeneration #SalesAutomation #RevenueGrowth #DigitalMarketing #MarketingAutomation #SkynetJoe #WaseemNasir"
+    },
+    {
+      "id": 10,
+      "quote": "The future belongs to those who automate what others do manually.",
+      "caption": "The future belongs to those who automate what others do manually.\n\nWhile they're copy-pasting, you're deploying.\nWhile they're scheduling, you're scaling.\nWhile they're working IN the business, you're working ON it.\n\nAutomate everything. Dominate your niche.",
+      "hashtags": "#Automation #FutureOfWork #AITools #n8n #WorkflowAutomation #Efficiency #TechEntrepreneur #ScaleUp #SkynetJoe #WaseemNasir"
+    }
+  ]
+}

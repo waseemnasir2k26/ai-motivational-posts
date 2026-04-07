@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waseem Nasir - AI/IT Motivational Quotes (10 Posts)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 40px 20px;
+    color: #fff;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #888;
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .post-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .post-number {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* === THE QUOTE CARD (1080x1350 ratio = 4:5) === */
+  .quote-card {
+    width: 432px;
+    height: 540px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-bar-top,
+  .card-bar-bottom {
+    width: 100%;
+    height: 28px;
+    background: #000;
+    flex-shrink: 0;
+  }
+
+  .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 36px;
+  }
+
+  /* Profile row */
+  .profile-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .avatar-ring {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0a2e0a, #00cc44, #0a2e0a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0, 204, 68, 0.3);
+  }
+
+  .avatar-ring img {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .profile-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .profile-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: #000;
+    line-height: 1.2;
+  }
+
+  .verified-badge {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .profile-handle {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+  }
+
+  /* Quote text */
+  .quote-text {
+    font-size: 26px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+  }
+
+  /* === CAPTION SECTION BELOW CARD === */
+  .caption-section {
+    width: 432px;
+    margin-top: 16px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 16px 20px;
+    border: 1px solid #333;
+  }
+
+  .caption-label {
+    font-size: 10px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .caption-text {
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+
+  .caption-text .hashtags {
+    color: #4a9eff;
+  }
+
+  /* Copy button */
+  .copy-btn {
+    margin-top: 10px;
+    background: #333;
+    border: 1px solid #555;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover { background: #4a9eff; border-color: #4a9eff; }
+  .copy-btn.copied { background: #22c55e; border-color: #22c55e; }
+</style>
+</head>
+<body>
+
+<h1>Waseem Nasir - AI/IT Quote Posts</h1>
+<p class="subtitle">10 motivational quote cards for Instagram / LinkedIn / Twitter - Review &amp; approve, then we'll build the GHL CSV</p>
+
+<div class="grid" id="grid"></div>
+
+<script>
+const PHOTO_PATH = "waseem-photo.png"; // relative path — same folder
+
+const posts = [
+  {
+    id: 1,
+    quote: "AI won\u2019t replace you.\nA person using AI will.",
+    caption: `AI won\u2019t replace you. A person using AI will.\n\nThe threat isn\u2019t artificial intelligence\u2014it\u2019s artificial ignorance. The people who refuse to adapt.\n\nLearn the tools. Build the systems. Stay dangerous.\n\nFollow @waseemnasir for daily AI & automation insights.`,
+    hashtags: "#AI #ArtificialIntelligence #FutureOfWork #TechMindset #Automation #AITools #DigitalTransformation #WorkSmarter #SkynetJoe #WaseemNasir"
+  },
+  {
+    id: 2,
+    quote: "Automate the boring stuff.\nHumanize the important stuff.",
+    caption: `Automate the boring stuff. Humanize the important stuff.\n\nThe goal of AI isn\u2019t to remove humans from the equation\u2014it\u2019s to free humans for what actually matters.\n\nStrategy. Creativity. Connection.\n\nLet the bots handle the busywork.`,
+    hashtags: "#Automation #AI #Productivity #n8n #WorkflowAutomation #TechEntrepreneur #BuildSystems #AgencyLife #SkynetJoe #WaseemNasir"
+  },
+  {
+    id: 3,
+    quote: "Your competitors aren\u2019t sleeping.\nTheir AI agents aren\u2019t either.",
+    caption: `Your competitors aren\u2019t sleeping. Their AI agents aren\u2019t either.\n\nWhile you\u2019re deciding whether AI is \u201Cready,\u201D someone else is deploying agents that work 24/7.\n\nThe question isn\u2019t IF you should use AI.\nIt\u2019s how fast you can start.`,
+    hashtags: "#AIAgents #CompetitiveAdvantage #TechStartup #Entrepreneurship #AIAutomation #BusinessGrowth #StayAhead #DigitalAgency #SkynetJoe #WaseemNasir"
+  },
+  {
+    id: 4,
+    quote: "Stop trading time for money.\nStart trading systems for freedom.",
+    caption: `Stop trading time for money. Start trading systems for freedom.\n\nEvery hour you spend on repetitive tasks is an hour you\u2019ll never get back.\n\nBuild systems once. Let them run forever.\nThat\u2019s the real definition of leverage.`,
+    hashtags: "#SystemsThinking #Leverage #Automation #FreelancerLife #AgencyOwner #PassiveIncome #BuildOnce #AIWorkflow #SkynetJoe #WaseemNasir"
+  },
+  {
+    id: 5,
+    quote: "Build once.\nDeploy everywhere.\nSleep peacefully.",
+    caption: `Build once. Deploy everywhere. Sleep peacefully.\n\nThat\u2019s the developer\u2019s dream\u2014and with modern AI + automation, it\u2019s finally real.\n\nOne workflow. Multiple platforms. Zero babysitting.\n\nThis is how you scale without burning out.`,
+    hashtags: "#DevLife #Scalability #WebDevelopment #CloudComputing #AITools #n8nAutomation #TechLife #CodeOnce #SkynetJoe #WaseemNasir"
+  },
+  {
+    id: 6,
+    quote: "The gap between knowing AI exists and using AI daily is where fortunes are made.",
+    caption: `The gap between knowing AI exists and using AI daily is where fortunes are made.\n\nEveryone \u201Cknows\u201D about AI.\nAlmost nobody has built it into their daily workflow.\n\nThat gap? That\u2019s your unfair advantage.\nClose it before everyone else does.`,
+    hashtags: "#AIStrategy #UnfairAdvantage #TechEntrepreneur #AIDaily #Innovation #DigitalTransformation #FirstMover #AIBusiness #SkynetJoe #WaseemNasir"
+  },
+  {
+    id: 7,
+    quote: "Every line of code you write today is a conversation with the future.",
+    caption: `Every line of code you write today is a conversation with the future.\n\nCode isn\u2019t just logic\u2014it\u2019s a blueprint for what\u2019s possible tomorrow.\n\nWrite it with intention.\nBuild it with purpose.\nShip it with confidence.`,
+    hashtags: "#Coding #SoftwareEngineering #DevMindset #ProgrammerLife #TechMotivation #JavaScript #Python #WebDev #SkynetJoe #WaseemNasir"
+  },
+  {
+    id: 8,
+    quote: "In 2026, not using AI in your business is like refusing to use email in 2005.",
+    caption: `In 2026, not using AI in your business is like refusing to use email in 2005.\n\nSounds dramatic? It\u2019s not.\n\nAI is the new electricity. The new internet. The new baseline.\n\nAdopt it or get left behind. There\u2019s no middle ground anymore.`,
+    hashtags: "#AI2026 #BusinessStrategy #DigitalTransformation #AdaptOrDie #TechTrends #AIBusiness #SmallBusiness #Innovation #SkynetJoe #WaseemNasir"
+  },
+  {
+    id: 9,
+    quote: "The best agencies don\u2019t just build websites.\nThey build revenue machines.",
+    caption: `The best agencies don\u2019t just build websites. They build revenue machines.\n\nA website without SEO is a billboard in the desert.\nA funnel without automation is a leaky bucket.\n\nBuild systems that generate, capture, and convert.\nThat\u2019s the SkynetJoe way.`,
+    hashtags: "#AgencyLife #WebDesign #SEO #LeadGeneration #SalesAutomation #RevenueGrowth #DigitalMarketing #MarketingAutomation #SkynetJoe #WaseemNasir"
+  },
+  {
+    id: 10,
+    quote: "The future belongs to those who automate what others do manually.",
+    caption: `The future belongs to those who automate what others do manually.\n\nWhile they\u2019re copy-pasting, you\u2019re deploying.\nWhile they\u2019re scheduling, you\u2019re scaling.\nWhile they\u2019re working IN the business, you\u2019re working ON it.\n\nAutomate everything. Dominate your niche.`,
+    hashtags: "#Automation #FutureOfWork #AITools #n8n #WorkflowAutomation #Efficiency #TechEntrepreneur #ScaleUp #SkynetJoe #WaseemNasir"
+  }
+];
+
+const verifiedSVG = `<svg class="verified-badge" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20.396 11c.002-.36-.072-.715-.213-1.043a2.328 2.328 0 00-.606-.87l-.07-.062a2.288 2.288 0 01-.627-1.569c.009-.31.063-.617.16-.912l.033-.09a2.328 2.328 0 00-.09-1.786 2.328 2.328 0 00-1.347-1.14l-.09-.031a2.288 2.288 0 01-1.323-1.063 2.288 2.288 0 01-.222-1.68l.025-.092a2.328 2.328 0 00-.506-1.7 2.328 2.328 0 00-1.636-.757l-.096-.004a2.288 2.288 0 01-1.49-.725A2.288 2.288 0 0111.804.6L11.77.505a2.328 2.328 0 00-1.042-.504 2.328 2.328 0 00-1.737.323l-.08.053a2.288 2.288 0 01-1.675.294 2.288 2.288 0 01-1.404-.867L5.77.73a2.328 2.328 0 00-1.543-.81 2.328 2.328 0 00-1.664.481l-.073.06a2.288 2.288 0 01-1.569.627c-.31-.009-.617-.063-.912-.16l-.09-.033a2.328 2.328 0 00-1.786.09c-.531.26-.954.7-1.14 1.347l-.031.09A2.288 2.288 0 01-4.1 3.745a2.288 2.288 0 01-1.68.222l-.092-.025a2.328 2.328 0 00-1.7.506c-.48.418-.78.998-.757 1.636l.004.096a2.288 2.288 0 01-.725 1.49 2.288 2.288 0 01-1.573.533l-.095.035a2.328 2.328 0 00-.504 1.042 2.328 2.328 0 00.323 1.737l.053.08a2.288 2.288 0 01.294 1.675 2.288 2.288 0 01-.867 1.404l-.074.062a2.328 2.328 0 00-.81 1.543c-.048.575.12 1.15.481 1.664l.06.073a2.288 2.288 0 01.627 1.569c-.009.31-.063.617-.16.912l-.033.09a2.328 2.328 0 00.09 1.786c.26.531.7.954 1.347 1.14l.09.031a2.288 2.288 0 011.063 1.323c.148.476.17.983.222 1.68l-.025.092a2.328 2.328 0 00.506 1.7c.418.48.998.78 1.636.757l.096-.004a2.288 2.288 0 011.49.725c.363.403.578.9.533 1.573l-.035.095a2.328 2.328 0 00.504 1.042c.3.343.695.58 1.042.504z" fill="#1D9BF0"/>
+  <path d="M9.585 14.929l-3.28-3.28a.5.5 0 01.707-.708l2.573 2.573 5.99-5.99a.5.5 0 01.708.707l-6.697 6.698z" fill="#fff"/>
+</svg>`;
+
+// Simpler verified badge that definitely works
+const verifiedBadge = `<svg class="verified-badge" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="12" fill="#1D9BF0"/>
+  <path d="M9.5 16.5L5.5 12.5L6.91 11.09L9.5 13.67L17.09 6.09L18.5 7.5L9.5 16.5Z" fill="white"/>
+</svg>`;
+
+const grid = document.getElementById('grid');
+
+posts.forEach(post => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'post-wrapper';
+
+  const fullCaption = post.caption + "\n\n" + post.hashtags;
+
+  wrapper.innerHTML = `
+    <div class="post-number">POST ${post.id} of 10</div>
+    <div class="quote-card">
+      <div class="card-bar-top"></div>
+      <div class="card-content">
+        <div class="profile-row">
+          <div class="avatar-ring">
+            <img src="${PHOTO_PATH}" alt="Waseem Nasir" />
+          </div>
+          <div class="profile-info">
+            <div class="profile-name-row">
+              <span class="profile-name">Waseem Nasir</span>
+              ${verifiedBadge}
+            </div>
+            <span class="profile-handle">@waseemnasir</span>
+          </div>
+        </div>
+        <div class="quote-text">${post.quote}</div>
+      </div>
+      <div class="card-bar-bottom"></div>
+    </div>
+    <div class="caption-section">
+      <div class="caption-label">Caption + Hashtags</div>
+      <div class="caption-text">${post.caption}\n\n<span class="hashtags">${post.hashtags}</span></div>
+      <button class="copy-btn" onclick="copyCaption(this, ${post.id})">Copy Caption</button>
+    </div>
+  `;
+
+  grid.appendChild(wrapper);
+});
+
+// Store full captions for copying
+const captionMap = {};
+posts.forEach(p => {
+  captionMap[p.id] = p.caption + "\n\n" + p.hashtags;
+});
+
+function copyCaption(btn, id) {
+  navigator.clipboard.writeText(captionMap[id]).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy Caption';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
