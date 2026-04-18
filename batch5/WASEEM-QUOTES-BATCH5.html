@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Waseem Quote Posts — Batch 5 (6 Formats)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="./photo-embed.js"></script>
+<style>
+  :root{
+    --bg:#f4f4f5; --ink:#0b0b0c; --muted:#6b7280; --ring:#00ff88;
+    --brand:#0a84ff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif}
+  header{padding:28px 24px;border-bottom:1px solid #e4e4e7;background:#fff;position:sticky;top:0;z-index:10}
+  header h1{margin:0 0 6px;font-size:22px;font-weight:800}
+  header p{margin:0;color:var(--muted);font-size:14px}
+  .wrap{max-width:1200px;margin:0 auto;padding:32px 20px 80px}
+  .post{background:#fff;border:1px solid #e4e4e7;border-radius:18px;padding:22px;margin-bottom:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media (max-width:960px){.post{grid-template-columns:1fr}}
+  .meta{font-size:12px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.1em}
+  .format-label{display:inline-block;background:var(--ink);color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:6px;letter-spacing:.06em;margin-bottom:10px}
+  .card-shell{background:#000;padding:0;border-radius:10px;overflow:hidden;aspect-ratio:1080/1350;max-width:100%;position:relative}
+  .card{width:1080px;height:1350px;transform-origin:top left;position:absolute;top:0;left:0}
+  /* Scale cards down to fit preview column */
+  .card-scale{position:relative;width:100%;aspect-ratio:1080/1350;overflow:hidden;border-radius:10px}
+  .card-inner{width:1080px;height:1350px;position:absolute;top:0;left:0;transform-origin:top left}
+  .side h3{margin:0 0 8px;font-size:18px;font-weight:800}
+  .caption{background:#f9fafb;border:1px solid #e4e4e7;border-radius:10px;padding:14px;font-size:14px;line-height:1.55;white-space:pre-wrap;max-height:260px;overflow:auto}
+  .hashtags{margin-top:8px;font-size:13px;color:var(--brand);line-height:1.5}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  button{cursor:pointer;border:0;padding:10px 14px;border-radius:10px;font-weight:700;font-size:13px;font-family:inherit}
+  .btn-dl{background:var(--ink);color:#fff}
+  .btn-copy{background:#fff;color:var(--ink);border:1px solid #d4d4d8}
+  .btn-copy.ok{background:#dcfce7;border-color:#86efac;color:#166534}
+
+  /* ========== FORMAT 1 — TWEET-STYLE (Tommy Mello) ========== */
+  .fmt-tweet{background:#fff;padding:0;display:flex;flex-direction:column;font-family:'Inter'}
+  .fmt-tweet .bar{background:#000;height:90px}
+  .fmt-tweet .head{display:flex;align-items:center;gap:22px;padding:46px 58px 0}
+  .fmt-tweet .avatar{width:140px;height:140px;border-radius:50%;background:#001a0a;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px #00ff88,0 0 32px 8px #00ff88aa;overflow:hidden}
+  .fmt-tweet .avatar img{width:118px;height:118px;border-radius:50%;object-fit:cover}
+  .fmt-tweet .who{display:flex;flex-direction:column}
+  .fmt-tweet .name{font-weight:800;font-size:48px;color:#000;display:flex;align-items:center;gap:10px}
+  .fmt-tweet .verified{width:38px;height:38px;background:#1d9bf0;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:900}
+  .fmt-tweet .handle{color:#536471;font-size:38px;margin-top:4px}
+  .fmt-tweet .quote{flex:1;display:flex;align-items:center;padding:60px 58px;font-size:78px;font-weight:800;line-height:1.16;color:#000;letter-spacing:-.02em}
+
+  /* ========== FORMAT 2 — TERMINAL / CLI ========== */
+  .fmt-term{background:#0b0d10;color:#e6edf3;font-family:'JetBrains Mono',monospace;padding:80px 72px;display:flex;flex-direction:column;gap:32px}
+  .fmt-term .top{display:flex;align-items:center;gap:10px}
+  .fmt-term .dot{width:18px;height:18px;border-radius:50%}
+  .fmt-term .dot.r{background:#ff5f56}
+  .fmt-term .dot.y{background:#ffbd2e}
+  .fmt-term .dot.g{background:#27c93f}
+  .fmt-term .title{margin-left:auto;margin-right:auto;color:#8b949e;font-size:22px}
+  .fmt-term .line{font-size:32px;line-height:1.6}
+  .fmt-term .prompt{color:#00ff88}
+  .fmt-term .cmd{color:#58a6ff}
+  .fmt-term .quote{color:#ffffff;font-weight:700;font-size:62px;line-height:1.24;margin:20px 0;letter-spacing:-.015em}
+  .fmt-term .out{color:#c9d1d9;font-size:30px;line-height:1.55}
+  .fmt-term .out .key{color:#f778ba}
+  .fmt-term .cursor{display:inline-block;width:16px;height:38px;background:#00ff88;vertical-align:middle;animation:blink 1s infinite}
+  .fmt-term .sig{margin-top:auto;display:flex;align-items:center;gap:16px;color:#8b949e;font-size:26px}
+  .fmt-term .sig img{width:64px;height:64px;border-radius:50%;border:2px solid #00ff88}
+  @keyframes blink{50%{opacity:0}}
+
+  /* ========== FORMAT 3 — BOLD POSTER (gradient) ========== */
+  .fmt-poster{background:linear-gradient(135deg,#6d28d9 0%,#ec4899 55%,#f97316 100%);color:#fff;padding:110px 90px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .fmt-poster::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(255,255,255,.22),transparent 45%)}
+  .fmt-poster .kicker{font-size:30px;font-weight:800;letter-spacing:.22em;opacity:.9;position:relative}
+  .fmt-poster .big{font-size:180px;font-weight:900;line-height:.96;letter-spacing:-.04em;margin-top:40px;position:relative;text-shadow:0 4px 30px rgba(0,0,0,.2)}
+  .fmt-poster .sig{margin-top:auto;display:flex;align-items:center;gap:22px;position:relative}
+  .fmt-poster .sig img{width:90px;height:90px;border-radius:50%;border:4px solid #fff}
+  .fmt-poster .sig .who{font-size:34px;font-weight:700;line-height:1.2}
+  .fmt-poster .sig .h{opacity:.75;font-size:26px}
+
+  /* ========== FORMAT 4 — MINIMALIST SERIF ========== */
+  .fmt-serif{background:#faf7f2;color:#1a1a1a;padding:140px 110px;display:flex;flex-direction:column;justify-content:center;font-family:'Playfair Display',serif}
+  .fmt-serif .mark{font-size:220px;line-height:.7;color:#b5986a;font-weight:700;font-style:italic}
+  .fmt-serif .q{font-size:86px;font-weight:400;font-style:italic;line-height:1.22;margin:10px 0 60px;color:#1a1a1a;letter-spacing:-.01em}
+  .fmt-serif .rule{width:120px;height:1px;background:#b5986a;margin-bottom:28px}
+  .fmt-serif .by{font-family:'Inter';font-size:28px;letter-spacing:.18em;text-transform:uppercase;color:#6b6b6b;font-weight:600}
+  .fmt-serif .name{font-family:'Playfair Display';font-size:40px;font-weight:700;margin-top:6px;color:#1a1a1a}
+
+  /* ========== FORMAT 5 — X DARK MODE SCREENSHOT ========== */
+  .fmt-x{background:#000;color:#e7e9ea;padding:70px 60px;display:flex;flex-direction:column;font-family:'Inter'}
+  .fmt-x .row{display:flex;align-items:center;gap:22px}
+  .fmt-x .av{width:120px;height:120px;border-radius:50%;overflow:hidden;background:#1e2732}
+  .fmt-x .av img{width:100%;height:100%;object-fit:cover}
+  .fmt-x .who{flex:1}
+  .fmt-x .n{font-weight:800;font-size:42px;display:flex;align-items:center;gap:10px}
+  .fmt-x .v{width:34px;height:34px;background:#1d9bf0;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:20px}
+  .fmt-x .h{color:#71767b;font-size:32px;margin-top:2px}
+  .fmt-x .dots{color:#71767b;font-size:40px;padding:6px 14px}
+  .fmt-x .body{margin-top:36px;font-size:78px;font-weight:500;line-height:1.24;color:#fff;letter-spacing:-.02em}
+  .fmt-x .time{color:#71767b;font-size:26px;margin-top:40px}
+  .fmt-x .bar{height:1px;background:#2f3336;margin:24px 0}
+  .fmt-x .stats{display:flex;gap:60px;color:#71767b;font-size:26px}
+  .fmt-x .stats b{color:#e7e9ea;font-weight:700;margin-right:6px}
+  .fmt-x .icons{display:flex;justify-content:space-between;margin-top:30px;color:#71767b;font-size:30px}
+  .fmt-x .icons span{display:inline-flex;align-items:center;gap:10px}
+
+  /* ========== FORMAT 6 — STATS CARD ========== */
+  .fmt-stats{background:#0f172a;color:#fff;padding:100px 90px;display:flex;flex-direction:column;font-family:'Inter';position:relative;overflow:hidden}
+  .fmt-stats::after{content:"";position:absolute;right:-120px;bottom:-120px;width:500px;height:500px;background:radial-gradient(circle,#0a84ff55,transparent 65%);border-radius:50%}
+  .fmt-stats .label{font-size:28px;letter-spacing:.22em;color:#94a3b8;text-transform:uppercase;font-weight:700}
+  .fmt-stats .num{font-size:400px;font-weight:900;line-height:.92;letter-spacing:-.055em;background:linear-gradient(180deg,#fff 0%,#0a84ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin:20px 0 10px}
+  .fmt-stats .divider{height:4px;width:120px;background:#0a84ff;margin:30px 0 40px;border-radius:2px}
+  .fmt-stats .q{font-size:70px;font-weight:800;line-height:1.18;letter-spacing:-.02em;max-width:860px}
+  .fmt-stats .sig{margin-top:auto;display:flex;align-items:center;gap:20px;position:relative;z-index:1}
+  .fmt-stats .sig img{width:84px;height:84px;border-radius:50%;border:3px solid #0a84ff}
+  .fmt-stats .sig .who{font-size:32px;font-weight:700}
+  .fmt-stats .sig .h{color:#94a3b8;font-size:24px}
+
+  /* download instructions */
+  .how{background:#0b0b0c;color:#fff;border-radius:16px;padding:22px 24px;margin-bottom:28px;font-size:14px;line-height:1.6}
+  .how code{background:#1f2937;padding:2px 6px;border-radius:4px;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Waseem Quote Posts — Batch 5 (6 Formats)</h1>
+  <p>6 new quotes, 6 distinct visual formats. Click <b>Download PNG</b> on each, then copy caption and post to FB profile.</p>
+</header>
+
+<div class="wrap">
+  <div class="how">
+    <b>How to use:</b><br>
+    1. Click <b>Download PNG</b> on any card → 1080×1350 image saved.<br>
+    2. Click <b>Copy Caption</b> → paste into Facebook post.<br>
+    3. Attach PNG. Publish.<br>
+    4. For bulk scheduling: upload PNGs to GitHub (repo: <code>ai-motivational-posts/batch5/images/</code>) then import <code>ghl-batch5-advanced.csv</code> to GHL.
+  </div>
+
+  <!-- =========================== POST 1 — TWEET-STYLE =========================== -->
+  <div class="post">
+    <div>
+      <span class="format-label">Format 1 · Tweet-style (proven winner)</span>
+      <div class="card-scale" id="scale-1">
+        <div class="card-inner" id="card-1">
+          <div class="fmt-tweet" style="width:1080px;height:1350px">
+            <div class="bar"></div>
+            <div class="head">
+              <div class="avatar"><img data-photo alt=""></div>
+              <div class="who">
+                <div class="name">Waseem Nasir <span class="verified">&#10003;</span></div>
+                <div class="handle">@waseemnasir</div>
+              </div>
+            </div>
+            <div class="quote">Your laptop is a money printer. Most people use it as a TV.</div>
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="meta">POST 1 · Schedule: 2026-04-20 10:00</div>
+      <h3>Caption</h3>
+      <div class="caption" id="cap-1">Your laptop is a money printer.
+
+Most people use it as a TV.
+
+Same machine. Same 24 hours. Totally different output.
+
+What did YOUR laptop do for you this week?
+
+#Builders #NomadCEO #AI #Automation #Mindset #WaseemNasir #SkynetJoe #BuildInPublic #Entrepreneur #SideHustle</div>
+      <div class="actions">
+        <button class="btn-dl" onclick="dl('card-1','waseem-batch5-01-tweet.png',this)">Download PNG</button>
+        <button class="btn-copy" onclick="copy('cap-1',this)">Copy Caption</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================== POST 2 — TERMINAL =========================== -->
+  <div class="post">
+    <div>
+      <span class="format-label">Format 2 · Terminal / CLI</span>
+      <div class="card-scale">
+        <div class="card-inner" id="card-2">
+          <div class="fmt-term" style="width:1080px;height:1350px">
+            <div class="top">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <span class="title">waseem@nomad-ceo:~ — zsh</span>
+            </div>
+            <div class="line"><span class="prompt">$</span> <span class="cmd">sudo</span> ship --no-fear</div>
+            <div class="quote">Excuses don&rsquo;t compile.<br>Ship the bug. Fix in prod.</div>
+            <div class="out"><span class="key">[OK]</span> Imposter syndrome: <b>ignored</b><br><span class="key">[OK]</span> Perfect timing: <b>never arrives</b><br><span class="key">[OK]</span> Deploy status: <b>live</b></div>
+            <div class="line"><span class="prompt">$</span> <span class="cursor"></span></div>
+            <div class="sig">
+              <img data-photo alt="">
+              <div>— @waseemnasir · NomadCEO.sh</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="meta">POST 2 · Schedule: 2026-04-21 14:00</div>
+      <h3>Caption</h3>
+      <div class="caption" id="cap-2">Waited for perfect conditions for 3 years.
+
+They never came.
+
+Shipped ugly. Fixed in prod. Got paid.
+
+Perfect never ships. What are you waiting on that you could push TODAY?
+
+#ShipIt #BuildInPublic #DevLife #AI #Automation #Founders #n8n #NomadCEO #WaseemNasir #SkynetJoe</div>
+      <div class="actions">
+        <button class="btn-dl" onclick="dl('card-2','waseem-batch5-02-terminal.png',this)">Download PNG</button>
+        <button class="btn-copy" onclick="copy('cap-2',this)">Copy Caption</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================== POST 3 — BOLD POSTER =========================== -->
+  <div class="post">
+    <div>
+      <span class="format-label">Format 3 · Bold Poster (gradient)</span>
+      <div class="card-scale">
+        <div class="card-inner" id="card-3">
+          <div class="fmt-poster" style="width:1080px;height:1350px">
+            <div class="kicker">AGENCY RULE #1</div>
+            <div class="big">STOP<br>CONSUMING.<br>START<br>SHIPPING.</div>
+            <div class="sig">
+              <img data-photo alt="">
+              <div class="who">Waseem Nasir<div class="h">@waseemnasir · SkynetJoe</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="meta">POST 3 · Schedule: 2026-04-22 11:00</div>
+      <h3>Caption</h3>
+      <div class="caption" id="cap-3">Watched 47 tutorials last month.
+Built 0 things.
+
+Sound familiar?
+
+Consumption feels like progress. It&rsquo;s not.
+Ship a messy v1 this weekend. Trust me.
+
+What&rsquo;s the one thing you&rsquo;ve been consuming instead of building?
+
+#ShipIt #Builders #AI #Automation #BuildInPublic #Creators #Founders #n8n #WaseemNasir #SkynetJoe</div>
+      <div class="actions">
+        <button class="btn-dl" onclick="dl('card-3','waseem-batch5-03-poster.png',this)">Download PNG</button>
+        <button class="btn-copy" onclick="copy('cap-3',this)">Copy Caption</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================== POST 4 — MINIMALIST SERIF =========================== -->
+  <div class="post">
+    <div>
+      <span class="format-label">Format 4 · Minimalist Serif</span>
+      <div class="card-scale">
+        <div class="card-inner" id="card-4">
+          <div class="fmt-serif" style="width:1080px;height:1350px">
+            <div class="mark">&ldquo;</div>
+            <div class="q">The gap between idea and Monday morning is where dreams die.</div>
+            <div class="rule"></div>
+            <div class="by">Notes from a Nomad CEO</div>
+            <div class="name">Waseem Nasir</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="meta">POST 4 · Schedule: 2026-04-23 09:00</div>
+      <h3>Caption</h3>
+      <div class="caption" id="cap-4">Sunday night you had a plan.
+Monday 9am you opened Slack.
+
+Suddenly the plan is gone.
+
+The gap between the idea and the first real action — that&rsquo;s the graveyard. Close it fast.
+
+What&rsquo;s the one idea you keep pushing to "next Monday"?
+
+#MondayMotivation #Builders #AI #Automation #Discipline #Founders #NomadCEO #ProductivityHacks #WaseemNasir #SkynetJoe</div>
+      <div class="actions">
+        <button class="btn-dl" onclick="dl('card-4','waseem-batch5-04-serif.png',this)">Download PNG</button>
+        <button class="btn-copy" onclick="copy('cap-4',this)">Copy Caption</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================== POST 5 — X DARK MODE =========================== -->
+  <div class="post">
+    <div>
+      <span class="format-label">Format 5 · X (Dark mode screenshot)</span>
+      <div class="card-scale">
+        <div class="card-inner" id="card-5">
+          <div class="fmt-x" style="width:1080px;height:1350px">
+            <div class="row">
+              <div class="av"><img data-photo alt=""></div>
+              <div class="who">
+                <div class="n">Waseem Nasir <span class="v">&#10003;</span></div>
+                <div class="h">@waseemnasir</div>
+              </div>
+              <div class="dots">&#8943;</div>
+            </div>
+            <div class="body">Nomad CEO.<br>3 continents.<br>One laptop.<br>Zero excuses.</div>
+            <div class="time">8:42 AM · Apr 19, 2026 · <b style="color:#e7e9ea">147K Views</b></div>
+            <div class="bar"></div>
+            <div class="stats">
+              <span><b>1.2K</b>Reposts</span>
+              <span><b>387</b>Quotes</span>
+              <span><b>9.4K</b>Likes</span>
+              <span><b>642</b>Bookmarks</span>
+            </div>
+            <div class="bar"></div>
+            <div class="icons">
+              <span>&#128172; 284</span>
+              <span>&#8634; 1.2K</span>
+              <span>&#9825; 9.4K</span>
+              <span>&#128202; 147K</span>
+              <span>&#128278;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="meta">POST 5 · Schedule: 2026-04-24 17:00</div>
+      <h3>Caption</h3>
+      <div class="caption" id="cap-5">Bali last quarter. Istanbul this month. Dubai next.
+
+Same laptop. Same clients. Same revenue.
+
+Location stopped mattering the day my systems started running without me.
+
+If you could work from anywhere — where would YOU be right now?
+
+#NomadCEO #RemoteWork #DigitalNomad #Freedom #Automation #AI #BuildInPublic #Entrepreneurs #WaseemNasir #SkynetJoe</div>
+      <div class="actions">
+        <button class="btn-dl" onclick="dl('card-5','waseem-batch5-05-xdark.png',this)">Download PNG</button>
+        <button class="btn-copy" onclick="copy('cap-5',this)">Copy Caption</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================== POST 6 — STATS CARD =========================== -->
+  <div class="post">
+    <div>
+      <span class="format-label">Format 6 · Stats Card</span>
+      <div class="card-scale">
+        <div class="card-inner" id="card-6">
+          <div class="fmt-stats" style="width:1080px;height:1350px">
+            <div class="label">TOOLS BUILT &middot; LAST 12 MONTHS</div>
+            <div class="num">47</div>
+            <div class="divider"></div>
+            <div class="q">Zero went viral.<br>Zero made a million.<br>Shipped anyway.<br>Day 1 never ends.</div>
+            <div class="sig">
+              <img data-photo alt="">
+              <div><div class="who">Waseem Nasir</div><div class="h">@waseemnasir · SkynetLabs Toolkit</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="meta">POST 6 · Schedule: 2026-04-25 12:00</div>
+      <h3>Caption</h3>
+      <div class="caption" id="cap-6">47 free tools shipped last year.
+
+Viral? No.
+Rich? Not yet.
+Learned more than any course? Absolutely.
+
+Reps &gt; results — especially in year one.
+
+What&rsquo;s your current "rep count" — tools built, posts written, calls taken?
+
+#BuildInPublic #Builders #AI #Automation #Reps #Founders #SideProject #SkynetLabsToolkit #WaseemNasir #SkynetJoe</div>
+      <div class="actions">
+        <button class="btn-dl" onclick="dl('card-6','waseem-batch5-06-stats.png',this)">Download PNG</button>
+        <button class="btn-copy" onclick="copy('cap-6',this)">Copy Caption</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Inject Waseem photo (base64 data URI — bypasses CORS, enables canvas export)
+  document.querySelectorAll('[data-photo]').forEach(i => { i.src = window.WASEEM_PHOTO; });
+
+  // Scale all card previews to fit their column
+  function rescale(){
+    document.querySelectorAll('.card-scale').forEach(s=>{
+      const inner = s.querySelector('.card-inner');
+      const w = s.clientWidth;
+      const scale = w / 1080;
+      inner.style.transform = 'scale(' + scale + ')';
+      inner.style.width = '1080px';
+      inner.style.height = '1350px';
+    });
+  }
+  window.addEventListener('load', rescale);
+  window.addEventListener('resize', rescale);
+
+  async function dl(id, filename, btn){
+    btn = btn || (window.event && window.event.target) || document.activeElement;
+    const origText = btn.textContent;
+    btn.textContent = 'Rendering...';
+    btn.disabled = true;
+    const node = document.getElementById(id);
+    const prev = node.style.transform;
+    node.style.transform = 'scale(1)';
+    try {
+      const canvas = await html2canvas(node, {
+        width:1080, height:1350, scale:2, useCORS:true, backgroundColor:null, logging:false
+      });
+      node.style.transform = prev;
+      canvas.toBlob(function(blob){
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(()=>URL.revokeObjectURL(url), 1000);
+        btn.textContent = 'Downloaded ✓';
+        btn.disabled = false;
+        setTimeout(()=>{btn.textContent = origText}, 1800);
+      }, 'image/png');
+    } catch(err) {
+      node.style.transform = prev;
+      console.error('Download failed:', err);
+      btn.textContent = 'Error — see console';
+      btn.disabled = false;
+      alert('Download failed: ' + err.message);
+    }
+  }
+
+  function copy(id, btn){
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(()=>{
+      const orig = btn.textContent;
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('ok');
+      setTimeout(()=>{btn.textContent=orig;btn.classList.remove('ok')}, 1600);
+    });
+  }
+</script>
+</body>
+</html>
